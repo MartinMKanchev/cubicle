@@ -24,7 +24,27 @@ function getById(id){
     return data.find(i => i.id == id)
 }
 
+async function create(cubeData){
+    let cube = {
+        id: getId(),
+        name: cubeData.name,
+        description: cubeData.description,
+        image: cubeData.image,
+        difficultyLevel: Number(cubeData.difficultyLevel)
+    }
+    data.push(cube)
+    await persist()
+    
+    return cube;
+}
+
+function getId(){
+    return ('000000' + (Math.random() * 999999 | 0).toString(16)).slice(-6);
+}
+
+
 module.exports = {
     getAll,
-    getById
+    getById,
+    create
 }
