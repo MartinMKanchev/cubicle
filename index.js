@@ -1,6 +1,7 @@
 let express = require('express')
 let hbs = require('express-handlebars').create({
-    extname: '.hbs'
+    extname: '.hbs',
+    
 })
 
 let aboutController = require('./controllers/aboutContoller')
