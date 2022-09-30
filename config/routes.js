@@ -1,5 +1,11 @@
-// TODO: Require Controllers...
+let aboutController = require('../controllers/aboutContoller')
+let defaultController = require('../controllers/defaultControler')
+let broweserContoller = require('../controllers/browserContoller')
+let createContoller = require('../controllers/createControler')
 
 module.exports = (app) => {
-    // TODO...
+    app.use(broweserContoller)
+    app.use(aboutController)
+    app.use(createContoller)
+    app.all('*', defaultController)
 };
