@@ -1,12 +1,12 @@
-let {Schema,model} = require('mongoose')
+let {Schema,model,Types} = require('mongoose')
 
 let cubeSchema = new Schema({
-    name:{type: String,required: true},
-    description:{type: String,required: true},
-    image:{type: String,required: true},
-    difficultyLevel:{type: Number,required: true,min: 1 }
+    name:{type: String},
+    description:{type: String},
+    image:{type: String},
+    difficultyLevel:{type: Number}
 })
 
-let cube = model('cube', cubeSchema)
+let Cube = model('cubes', cubeSchema)
 
-module.exports = cube
+module.exports = Cube
