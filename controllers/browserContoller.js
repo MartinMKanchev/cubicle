@@ -4,18 +4,21 @@ let router = require('express').Router()
 
 
 
-router.get('/', (req,res) => {
-    let cubes = getAll()
+router.get('/', async (req,res) => {
+    
 
+    let cubes = await getAll()
+    console.log(cubes);
     res.render('index',{
         title: 'Browser',
         cubes
     })
 })
 
-router.get('/details/:id', (req,res) => {
+router.get('/details/:id',async (req,res) => {
     let cubeId = req.params.id
-    let cube = getById(cubeId)
+    let cube = await getById(cubeId)
+    
 
     if(cube){
         res.render('details',{
